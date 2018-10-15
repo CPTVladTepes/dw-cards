@@ -9,6 +9,10 @@
     overflow: hidden;
 }
 
+.card strong {
+	color: red
+}
+
 .card h4 {
     /* Revert bootstrap style for the card preview */
     font-weight: bold;
