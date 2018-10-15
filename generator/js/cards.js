@@ -240,6 +240,31 @@ function card_element_dndstats(params, card_data, options) {
     return result;
 }
 
+function card_element_shipstats(params, card_data, options) {
+
+    var result = "";
+    result += '<table class="card-stats">';
+    result += '    <tbody><tr>';
+    result += '      <th class="card-stats-header">Mov</th>';
+    result += '      <th class="card-stats-header">Fray</th>';
+    result += '      <th class="card-stats-header">Def</th>';
+    result += '      <th class="card-stats-header">Armor</th>';
+    result += '      <th class="card-stats-header">Crit</th>';
+    result += '      <th class="card-stats-header">Hull</th>';
+    result += '    </tr>';
+    result += '    <tr>';
+    result += '      <td class="card-stats-cell">' + params[0] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[1] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[2] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[3] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[4] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[5] + '</td>';
+    result += '    </tr>';
+    result += '  </tbody>';
+    result += '</table>';
+    return result;
+}
+
 function card_element_bullet(params, card_data, options) {
     var result = "";
     result += '<ul class="card-element card-bullet-line">';
@@ -275,6 +300,7 @@ var card_element_generators = {
     boxes: card_element_boxes,
     description: card_element_description,
     dndstats: card_element_dndstats,
+	shipstats: card_element_shipstats,
     text: card_element_text,
     center: card_element_center,
     justify: card_element_justify,
