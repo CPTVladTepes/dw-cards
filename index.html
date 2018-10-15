@@ -150,17 +150,26 @@ This is not a complete documentation, but some information that should help you 
         <li>
             <code>subtitle</code>
             Slightly larger italic text.
-            Param1: the subtitle text.
+			<ul>
+				<li>Param1: the subtitle text.</li>
+				<li>Param2: right aligned subtitle text (eg. for points values).</li>
+			</ul>
         </li>
         <li>
             <code>rule</code>
             A horizontal rule.
         </li>
         <li>
+            <code>smallruler</code>
+            A smaller sized horizontal rule.
+        </li>
+        <li>
             <code>property</code>
             A property line. The property description is indented if it spans more than one line.
-            Param1: the property name (in bold).
-            Param2: the property description.
+			<ul>
+            	<li>Param1: the property name (in bold).</li>
+            	<li>Param2: the property description.</li>
+			</ul>
         </li>
         <li>
             <code>description</code>
@@ -169,45 +178,71 @@ This is not a complete documentation, but some information that should help you 
         <li>
             <code>text</code>
             A simple paragraph of text.
-            Param1: the text.
+			<ul>
+            	<li>Param1: the text.</li>
+			</ul>
         </li>
         <li>
             <code>subsection</code>
             A subsection header, with a horizontal rule below the subsection name.
-            Param1: the subsection name.
+			<ul>
+            	<li>Param1: the subsection name.</li>
+			</ul>
         </li>
         <li>
             <code>boxes</code>
             A line full of empty boxes. Useful for items with charges and actions with limited use.
-            Param1: number of boxes.
-            Param2: size of a box (where 1.0 is the size of the letter 'e').
+			<ul>
+            	<li>Param1: number of boxes.</li>
+            	<li>Param2: size of a box (where 1.0 is the size of the letter 'e').</li>
+			</ul>
         </li>
         <li>
-            <code>dndstats</code>
-            A Dungeons&Dragons stat block.
-            Param1: Strength score.
-            Param2: Dexterity score.
-            Param3: Constitution score.
-            Param4: Intelligence score.
-            Param5: Wisdom score.
-            Param6: Charisma score.
+            <code>shipstats</code>
+            Ship stats block.
+			<ul>
+            	<li>Param1: Movement value.</li>
+            	<li>Param2: Fray value.</li>
+            	<li>Param3: Defense value.</li>
+            	<li>Param4: Armor value.</li>
+            	<li>Param5: Critical value.</li>
+            	<li>Param6: Hull value.</li>
+			</ul>
+        </li>
+        <li>
+            <code>weapon</code>
+            Weapon stats block.
+			<ul>
+            	<li>Param1: Weapon name.</li>
+            	<li>Param2: Weapon properties (can left void).</li>
+            	<li>Param3: Fire arc.</li>
+            	<li>Param4: Point blanc value.</li>
+            	<li>Param5: Closing value.</li>
+            	<li>Param6: Long range value.</li>
+			</ul>
         </li>
         <li>
             <code>fill</code>
             A dynamically resized empty element that takes up a portion of unused space on the card.
             You can use this to vertically center text by adding one of these before and after the text you want to center.
-            Param1: the number of units of empty space to use.
+			<ul>
+            	<li>Param1: the number of units of empty space to use.
+			</ul>
         </li>
         <li>
             <code>bullet</code>
             A bulleted text line.
-            Param1: the text
+			<ul>
+            	<li>Param1: the text</li>
+			</ul>
         </li>
         <li>
             <code>picture</code>
             An inline picture.
-            Param1: URL of the picture.
-            Param2: Height in pixels.
+			<ul>
+            	<li>Param1: URL of the picture.</li>
+            	<li>Param2: Height in pixels.</li>
+			</ul>
         </li>
     </ul>
 </p>
