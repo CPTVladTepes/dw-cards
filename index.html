@@ -45,8 +45,8 @@
 </p>
 
 <div align="center">
-    <img src="images/front.png">
-    <img src="images/back.png">
+    <img src="images/battle_ready.png">
+    <img src="images/crippled.png">
 </div>
 
 <p>
@@ -55,24 +55,26 @@
     Don't worry if you don't want to edit the raw data - there is a simple user interface for creating the cards.
 </p>
 
-<pre><code>{
+<pre><code>
+{
     "count": 1,
-    "color": "maroon",
-    "title": "Burning Hands",
-    "icon": "book-cover",
+    "color": "Navy",
+    "title": "Alliance Battlecruiser",
+    "icon": "battleship",
     "contents": [
-        "subtitle | 1st level evocation",
-        "rule",
-        "property | Casting time | 1 action",
-        "property | Range | Self (15ft cone)",
-        "property | Components | V, S",
-        "rule",
-        "fill | 1",
-        "text | Each creature in a 15-foot cone takes <b>3d6 fire</b> damage.",
-        "text | The fire ignites any flammable objects in the area.",
-        "fill | 3",
-        "section | At higher levels",
-        "text | +1d6 damage for each slot above 1st"
+      "subtitle | Large, Capital, Surface | 175pts",
+      "smallruler",
+      "shipstats | 2/8 | 7 | 7/4 | 6 |12 | 4",
+      "smallruler",
+      "weapon | Heavy Gun Battery | Gunnery  | FPS  | 11(5) | 7(3) | 5(2)",
+      "weapon | Heavy Gun Battery | Gunnery  | APS  | 11(5) | 7(3) | 5(2)",
+      "weapon | Gun Battery | Gunnery  | FPS  | 7(4) | 5(2) | -",
+      "weapon | Heavy Broadside | Fusillade | P&S  | 12(6) | 10(5) | 8(4)",
+      "weapon | Torpedo Turret | Sub, Torpedo  | FP  | - | 6(3) | 6(3)",
+      "weapon | Torpedo Turret | Sub, Torpedo  | FS  | - | 6(3) | 6(3)",
+      "smallruler",
+      "text | Turning Limit, Conscripted Crew",
+      "fill"
     ]
 }
 </code></pre>
