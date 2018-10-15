@@ -265,6 +265,30 @@ function card_element_shipstats(params, card_data, options) {
     return result;
 }
 
+function card_element_weapon(params, card_data, options) {
+
+    var color = card_data_color_front(card_data, options);
+	var name = '<b style="color:' + color + '">' + params[0] + '</b>'
+
+	if (params[1]) {
+		name += ' (' + params[1] + ')'
+	}
+
+    var result = "";
+    result += '<table class="weapon-stats">';
+    result += '    <tbody>';
+    result += '    <tr>';
+    result += '      <td class="weapon-stats-name">' + name + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[2] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[3] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[4] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[5] + '</td>';
+    result += '    </tr>';
+    result += '  </tbody>';
+    result += '</table>';
+    return result;
+}
+
 function card_element_bullet(params, card_data, options) {
     var result = "";
     result += '<ul class="card-element card-bullet-line">';
@@ -301,6 +325,7 @@ var card_element_generators = {
     description: card_element_description,
     dndstats: card_element_dndstats,
 	shipstats: card_element_shipstats,
+	weapon: card_element_weapon,
     text: card_element_text,
     center: card_element_center,
     justify: card_element_justify,
