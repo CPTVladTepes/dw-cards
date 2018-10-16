@@ -8,11 +8,11 @@ function card_default_options() {
         default_color: "black",
         default_icon: "ace",
         default_title_size: "13",
-        page_size: "A4",
+        page_size: "A4L",
         page_rows: 3,
         page_columns: 3,
-        card_arrangement: "doublesided",
-        card_size: "25x35",
+        card_arrangement: "front_only",
+        card_size: "35x25",
         card_count: null,
         icon_inline: true,
         rounded_corners: true
@@ -106,7 +106,17 @@ function card_element_icon(card_data, options) {
 
 function card_element_subtitle(params, card_data, options) {
     var subtitle = params[0] || "";
-    return '<div class="card-element card-subtitle">' + subtitle + '</div>';
+	
+    var result = "";
+	result += '<div class="card-element card-subtitle">' + subtitle
+	if (params[1])
+	{
+		result += '   <div style="float:right">';
+		result += '       <p>' + params[1] + '</p>';
+		result += '   </div>';
+	}
+    result += '</div>';
+    return result;
 }
 
 function card_element_inline_icon(params, card_data, options) {
@@ -130,6 +140,18 @@ function card_element_ruler(params, card_data, options) {
 
     var result = "";
     result += '<svg class="card-ruler" height="1" width="100" viewbox="0 0 100 1" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">';
+    result += '    <polyline points="0,0 100,0.5 0,1" ' + fill + '></polyline>';
+    result += '</svg>';
+    return result;
+}
+
+function card_element_smallruler(params, card_data, options) {
+    var color = card_data_color_front(card_data, options);
+    var fill = 'fill="' + color + '"';
+    var stroke = 'stroke="' + color + '"';
+
+    var result = "";
+    result += '<svg class="card-small-ruler" height="1" width="100" viewbox="0 0 100 1" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">';
     result += '    <polyline points="0,0 100,0.5 0,1" ' + fill + '></polyline>';
     result += '</svg>';
     return result;
@@ -240,6 +262,55 @@ function card_element_dndstats(params, card_data, options) {
     return result;
 }
 
+function card_element_shipstats(params, card_data, options) {
+
+    var result = "";
+    result += '<table class="card-stats">';
+    result += '    <tbody><tr>';
+    result += '      <th class="card-stats-header">Mov</th>';
+    result += '      <th class="card-stats-header">Fray</th>';
+    result += '      <th class="card-stats-header">Def</th>';
+    result += '      <th class="card-stats-header">Armor</th>';
+    result += '      <th class="card-stats-header">Crit</th>';
+    result += '      <th class="card-stats-header">Hull</th>';
+    result += '    </tr>';
+    result += '    <tr>';
+    result += '      <td class="card-stats-cell">' + params[0] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[1] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[2] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[3] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[4] + '</td>';
+    result += '      <td class="card-stats-cell">' + params[5] + '</td>';
+    result += '    </tr>';
+    result += '  </tbody>';
+    result += '</table>';
+    return result;
+}
+
+function card_element_weapon(params, card_data, options) {
+
+    var color = card_data_color_front(card_data, options);
+	var name = '<b style="color:' + color + '">' + params[0] + '</b>'
+
+	if (params[1]) {
+		name += ' (' + params[1] + ')'
+	}
+
+    var result = "";
+    result += '<table class="weapon-stats">';
+    result += '    <tbody>';
+    result += '    <tr>';
+    result += '      <td class="weapon-stats-name">' + name + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[2] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[3] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[4] + '</td>';
+    result += '      <td class="weapon-stats-cell">' + params[5] + '</td>';
+    result += '    </tr>';
+    result += '  </tbody>';
+    result += '</table>';
+    return result;
+}
+
 function card_element_bullet(params, card_data, options) {
     var result = "";
     result += '<ul class="card-element card-bullet-line">';
@@ -272,9 +343,12 @@ var card_element_generators = {
     property: card_element_property,
     rule: card_element_ruler,
     ruler: card_element_ruler,
+	smallruler: card_element_smallruler,
     boxes: card_element_boxes,
     description: card_element_description,
     dndstats: card_element_dndstats,
+	shipstats: card_element_shipstats,
+	weapon: card_element_weapon,
     text: card_element_text,
     center: card_element_center,
     justify: card_element_justify,
@@ -460,9 +534,12 @@ function card_pages_generate_style(options) {
     switch (options.page_size) {
         case "A3": size = "A3 portrait"; break;
         case "A4": size = "210mm 297mm"; break;
+        case "A4L": size = "297mm 210mm"; break;
         case "A5": size = "A5 portrait"; break;
         case "Letter": size = "letter portrait"; break;
+        case "LetterL": size = "letter landscape"; break;
         case "25x35": size = "2.5in 3.5in"; break;
+        case "35x25": size = "3.5in 2.5in"; break;
         default: size = "auto";
     }
 
