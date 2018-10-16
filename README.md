@@ -1,12 +1,12 @@
-rpg-cards
+DW-Cards
 =========
 
-RPG spell/item/monster card generator
+Dystopian Wars unit card generator
 
 preview
 =======
 
-Click [here](https://crobi.github.io/rpg-cards/generator/generate.html) for a live preview of this generator.
+Click [here](https://cptvladtepes.github.io/dw-cards/generator/generate.html) for a live preview of this generator.
 
 status of the project
 =====================
